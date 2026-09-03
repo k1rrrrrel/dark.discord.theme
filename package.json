@@ -1,0 +1,31 @@
+{
+    "name": "Discord Dark Theme",
+    "description": "Discord-like theme that made by Piskokrad. How many symbols I need for desc?",
+    "version": "1.0.0",
+    "identifier": "dark.discord.theme",
+    "engines": {
+        "teamspeak": 1
+    },
+    "repository": {
+        "url": "https://github.com/k1rrrrrel/dark.discord.theme",
+        "directory": "dark.discord.theme",
+        "type": "git"
+    },
+    "image": "Discord.png",
+    "license": "MIT",
+    "author": {
+        "name": "k1rrrrrel",
+        "email": "k1rrrrrel@gmail.com",
+        "userTag": "k1rrrrrel@myteamspeak.com"
+    },
+    "content": {
+        "themes": [
+            {
+                "name": "Discord Dark Theme",
+                "source": "TeamSpeak.css",
+                "image": "Discord.png",
+                "apiVersion": 1
+            }
+        ]
+    }
+}

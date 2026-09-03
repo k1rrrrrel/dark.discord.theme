@@ -1,0 +1,482 @@
+/* ============================================================
+   TEAMSPEAK 6 → DISCORD THEME (Dark Edition)
+   Версия: 2.0 (для TS6)
+   Основано на: Colorful-TeamSpeak и AMOLED Dark Minimalistic темах
+   ============================================================ */
+
+/* ---------- ОСНОВНЫЕ ЦВЕТА (как в Discord) ---------- */
+:root,
+::after,
+::before {
+    /* Цветовая палитра Discord */
+    --discord-bg: #2f3136;
+    --discord-secondary: #36393f;
+    --discord-tertiary: #40444b;
+    --discord-border: #202225;
+    --discord-text: #dcddde;
+    --discord-text-muted: #72767d;
+    --discord-accent: #7289da;
+    --discord-accent-hover: #5b6eae;
+    --discord-green: #3ba55d;
+    --discord-red: #ed4245;
+    --discord-input-bg: #40444b;
+    --discord-black: #000000;
+
+    /* Переопределение системных переменных TS6 */
+    --custom-color-primary: var(--discord-accent);
+    --custom-color-primary-hover: var(--discord-accent-hover);
+    --custom-color-background: var(--discord-bg);
+    --custom-color-background-secondary: var(--discord-secondary);
+    --custom-color-background-tertiary: var(--discord-tertiary);
+    --custom-color-text: var(--discord-text);
+    --custom-color-text-muted: var(--discord-text-muted);
+    --custom-color-border: var(--discord-border);
+    
+    /* Для AMOLED-совместимости (по желанию) */
+    --custom-value-dark0: var(--discord-black);
+    --custom-value-dark1: var(--discord-bg);
+    --custom-value-dark2: var(--discord-secondary);
+    --custom-value-dark3: var(--discord-tertiary);
+    --custom-value-dark4: var(--discord-border);
+    --custom-value-dark5: #2a2c31;
+}
+
+/* ---------- ГЛОБАЛЬНЫЙ ФОН И ТЕКСТ ---------- */
+body,
+html,
+#app,
+.app-wrapper,
+.main-window {
+    background-color: var(--discord-bg) !important;
+    color: var(--discord-text) !important;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- БОКОВАЯ ПАНЕЛЬ (СЕРВЕРА/КАНАЛЫ) ---------- */
+.sidebar,
+.server-sidebar,
+.channel-list,
+.ts-server-tree {
+    background-color: var(--discord-secondary) !important;
+    border-right: 1px solid var(--discord-border) !important;
+}
+
+/* ---------- ЭЛЕМЕНТЫ ДЕРЕВА (КАНАЛЫ И ПОЛЬЗОВАТЕЛИ) ---------- */
+.ts-server-tree-item,
+.ts-channel-item,
+.ts-client-item {
+    background-color: transparent !important;
+    color: var(--discord-text) !important;
+    border-radius: 4px !important;
+    margin: 1px 4px !important;
+    padding: 4px 8px !important;
+}
+
+.ts-server-tree-item:hover,
+.ts-channel-item:hover,
+.ts-client-item:hover {
+    background-color: var(--discord-tertiary) !important;
+}
+
+.ts-server-tree-item.selected,
+.ts-channel-item.selected,
+.ts-client-item.selected {
+    background-color: var(--discord-accent) !important;
+    color: white !important;
+}
+
+/* ---------- НАСТРОЙКА ВЫСОТЫ КАНАЛОВ (компактный режим) ---------- */
+:root {
+    --channel-height: 28px !important;
+    --tsv-padding-v-large: 2px !important;
+    --tsv-padding-v: 2px !important;
+    --tsv-padding-v-small: 2px !important;
+    --tsv-padding-v-minimal: 2px !important;
+}
+
+/* Фон каналов (убираем цветные полосы, делаем как в Discord) */
+.ts-server-tree-item-background-no-image {
+    background: transparent !important;
+}
+
+.ts-server-tree-item-leaf.channel:not(.spacer) .ts-server-tree-item-background-no-image + .tsv-item-highlight {
+    background: transparent !important;
+}
+
+/* ---------- ВЕРХНЯЯ ПАНЕЛЬ (Toolbar) ---------- */
+.toolbar,
+.header-toolbar,
+.top-bar {
+    background-color: var(--discord-border) !important;
+    border-bottom: 1px solid var(--discord-border) !important;
+    padding: 4px 8px !important;
+}
+
+.toolbar-button,
+.ts-toolbar-button {
+    background: transparent !important;
+    color: var(--discord-text) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 6px 10px !important;
+}
+
+.toolbar-button:hover,
+.ts-toolbar-button:hover {
+    background-color: var(--discord-tertiary) !important;
+}
+
+/* ---------- ЧАТ ---------- */
+.chat-container,
+.message-area,
+.ts-chat {
+    background-color: var(--discord-secondary) !important;
+    color: var(--discord-text) !important;
+}
+
+.message-input,
+.ts-message-input {
+    background-color: var(--discord-input-bg) !important;
+    color: var(--discord-text) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+}
+
+.message-input:focus {
+    border: 1px solid var(--discord-accent) !important;
+}
+
+/* Сообщения в чате (как в Discord) */
+.message,
+.ts-message {
+    background-color: transparent !important;
+    padding: 4px 12px !important;
+    border-radius: 4px !important;
+}
+
+.message:hover,
+.ts-message:hover {
+    background-color: var(--discord-tertiary) !important;
+}
+
+.message .username,
+.ts-message .username {
+    color: var(--discord-accent) !important;
+    font-weight: bold !important;
+}
+
+.message .timestamp,
+.ts-message .timestamp {
+    color: var(--discord-text-muted) !important;
+    font-size: 11px !important;
+    margin-right: 8px !important;
+}
+
+/* ---------- ПОЛЯ ВВОДА И КНОПКИ ---------- */
+input[type="text"],
+input[type="search"],
+input[type="password"],
+textarea {
+    background-color: var(--discord-input-bg) !important;
+    color: var(--discord-text) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid var(--discord-accent) !important;
+    outline: none !important;
+}
+
+button,
+.ts-button {
+    background-color: var(--discord-accent) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    transition: background-color 0.15s ease !important;
+}
+
+button:hover,
+.ts-button:hover {
+    background-color: var(--discord-accent-hover) !important;
+}
+
+button.danger,
+button.destructive {
+    background-color: var(--discord-red) !important;
+}
+
+button.danger:hover,
+button.destructive:hover {
+    background-color: #c03537 !important;
+}
+
+button.success,
+button.primary {
+    background-color: var(--discord-green) !important;
+}
+
+button.success:hover,
+button.primary:hover {
+    background-color: #2d8d4f !important;
+}
+
+/* ---------- ВКЛАДКИ ---------- */
+.tab-bar,
+.ts-tab-bar {
+    background-color: var(--discord-border) !important;
+    border-bottom: 1px solid var(--discord-border) !important;
+}
+
+.tab,
+.ts-tab {
+    background-color: transparent !important;
+    color: var(--discord-text-muted) !important;
+    padding: 8px 16px !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.tab.active,
+.ts-tab.active {
+    color: var(--discord-text) !important;
+    border-bottom-color: var(--discord-accent) !important;
+}
+
+.tab:hover,
+.ts-tab:hover {
+    color: var(--discord-text) !important;
+}
+
+/* ---------- ВЫПАДАЮЩИЕ МЕНЮ ---------- */
+.dropdown-menu,
+.context-menu,
+.ts-menu {
+    background-color: var(--discord-secondary) !important;
+    color: var(--discord-text) !important;
+    border: 1px solid var(--discord-border) !important;
+    border-radius: 6px !important;
+    padding: 4px !important;
+}
+
+.dropdown-menu-item,
+.menu-item {
+    padding: 6px 24px 6px 12px !important;
+    border-radius: 4px !important;
+}
+
+.dropdown-menu-item:hover,
+.menu-item:hover {
+    background-color: var(--discord-accent) !important;
+    color: white !important;
+}
+
+.menu-separator {
+    height: 1px !important;
+    background: var(--discord-border) !important;
+    margin: 4px 8px !important;
+}
+
+/* ---------- ПОЛОСЫ ПРОКРУТКИ ---------- */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--discord-border) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--discord-tertiary) !important;
+    border-radius: 4px !important;
+    min-height: 30px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--discord-text-muted) !important;
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--discord-tertiary) var(--discord-border) !important;
+}
+
+/* ---------- СТАТУСНАЯ СТРОКА ---------- */
+.status-bar,
+.ts-status-bar {
+    background-color: var(--discord-border) !important;
+    color: var(--discord-text-muted) !important;
+    border-top: 1px solid var(--discord-border) !important;
+    padding: 4px 8px !important;
+}
+
+.status-online {
+    color: var(--discord-green) !important;
+}
+
+.status-away {
+    color: #faa81a !important;
+}
+
+.status-dnd {
+    color: var(--discord-red) !important;
+}
+
+/* ---------- КАРТОЧКИ И МОДАЛЬНЫЕ ОКНА ---------- */
+.card,
+.modal,
+.popup,
+.ts-card {
+    background-color: var(--discord-secondary) !important;
+    color: var(--discord-text) !important;
+    border: 1px solid var(--discord-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-header,
+.modal-header {
+    background-color: var(--discord-border) !important;
+    border-bottom: 1px solid var(--discord-border) !important;
+    padding: 12px 16px !important;
+}
+
+.card-body,
+.modal-body {
+    padding: 16px !important;
+}
+
+.card-footer,
+.modal-footer {
+    background-color: var(--discord-border) !important;
+    border-top: 1px solid var(--discord-border) !important;
+    padding: 12px 16px !important;
+}
+
+/* ---------- СПИСКИ И ТАБЛИЦЫ ---------- */
+.list-item,
+.ts-list-item {
+    background-color: transparent !important;
+    color: var(--discord-text) !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+}
+
+.list-item:hover,
+.ts-list-item:hover {
+    background-color: var(--discord-tertiary) !important;
+}
+
+.list-item.selected,
+.ts-list-item.selected {
+    background-color: var(--discord-accent) !important;
+    color: white !important;
+}
+
+/* ---------- ЧЕКБОКСЫ И РАДИОКНОПКИ ---------- */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--discord-accent) !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ---------- ССЫЛКИ ---------- */
+a,
+.link,
+.ts-link {
+    color: var(--discord-accent) !important;
+    text-decoration: none !important;
+}
+
+a:hover,
+.link:hover {
+    text-decoration: underline !important;
+    color: var(--discord-accent-hover) !important;
+}
+
+/* ---------- ИКОНКИ (заглушка, если используются svg) ---------- */
+.icon,
+.ts-icon {
+    color: var(--discord-text-muted) !important;
+}
+
+.icon:hover,
+.ts-icon:hover {
+    color: var(--discord-text) !important;
+}
+
+/* ---------- ПРОГРЕСС-БАРЫ ---------- */
+progress,
+.ts-progress {
+    background-color: var(--discord-border) !important;
+    border-radius: 4px !important;
+    height: 8px !important;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--discord-border) !important;
+    border-radius: 4px !important;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--discord-accent) !important;
+    border-radius: 4px !important;
+}
+
+/* ---------- ТУЛТИПЫ ---------- */
+.tooltip,
+.ts-tooltip {
+    background-color: var(--discord-border) !important;
+    color: var(--discord-text) !important;
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+}
+
+/* ============================================================
+   ДОПОЛНИТЕЛЬНО: АДАПТАЦИЯ ПОД КОНКРЕТНЫЕ ЭЛЕМЕНТЫ TS6
+   (на основе реальных классов из Colorful-TeamSpeak)
+   ============================================================ */
+
+/* Переопределение фона каналов (убираем градиенты) */
+.channel .tsv-item-highlight {
+    background: transparent !important;
+}
+
+/* Микрофон и динамик в хедере */
+.audio-controls,
+.voice-controls {
+    background-color: var(--discord-border) !important;
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+}
+
+/* Индикатор качества соединения */
+.connection-quality {
+    background-color: transparent !important;
+}
+
+/* Оверлей подключения */
+.connection-overlay {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* ============================================================
+   КОНЕЦ ТЕМЫ
+   Установка: скопируйте в папку расширений TS6
+   %APPDATA%\TeamSpeak\Default\extensions\название_темы\
+   или ~/.config/TeamSpeak/Default/extensions/
+   Активация: Настройки → Внешний вид → User Theme
+   ============================================================ */
